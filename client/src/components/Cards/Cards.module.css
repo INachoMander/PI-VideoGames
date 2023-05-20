@@ -1,0 +1,22 @@
+.containerCard{
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-gap: 20px;
+}
+.carga{
+   
+    height: 80vw;
+    width: 80vw;
+}
+.errorCarga{
+    display: flexbox;
+    margin: auto;
+    margin-left: 90%;
+    margin-top: 5vw;
+    padding: 10px 10px;
+    border: 2px solid rgb(255, 80, 80);
+    background-color: rgb(255, 0, 0);
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px 30px rgba(234, 255, 40, 0.39);
+}
