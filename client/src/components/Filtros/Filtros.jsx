@@ -22,7 +22,7 @@ const Filtros = ({handleFilter, handleSort, handleSource}) => {
                         <option value="A-Z" >A-Z</option>
                         <option value="Z-A" >Z-A</option>
                         <option value="Rating Asc">Rating Asc</option>
-                        <option value="Rating Des">Rating Desc</option>
+                        <option value="Rating Des">Rating Des</option>
                     </select>
 
                     <select id="genre" onChange={e => handleFilter(e)}>

@@ -1,11 +1,11 @@
 const {Videogame} = require('../db')
 
 const postGames = async (name, description, platforms, image, released, rating, Genres ) =>{
-   try {
+  try {
           if(!name || ! description || !platforms || !image || !released || !rating || !Genres){
             throw Error('Faltan datos')}
             else{
-               const nuevoJuego = await Videogame.create({
+               const newGame = await Videogame.create({
                name, description, platforms, image, released, rating, Genres
               });
             }
@@ -14,10 +14,10 @@ const postGames = async (name, description, platforms, image, released, rating, 
                     name: Genres
                 },
             });
-            nuevoJuego.addGenre(newGenre);
-            return (newGenre, nuevoJuego)
-   } catch (error) {
+            newGame.addGenre(newGenre);
+            return (newGenre, newGame)
+  } catch (error) {
     return error;
-   } 
+  } 
 }
 module.exports = {postGames};

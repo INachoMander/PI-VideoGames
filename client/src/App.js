@@ -1,11 +1,11 @@
-import axios from "axios"
 import LandingPage from "./Components/landingPage/landing"
 import Home from "./Components/homePage/home"
 import Detail from "./Components/Detail/Detail"
 import Create from "./Components/Create/Create"
 import Error404 from "./Components/Error404/Error404"
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route, BrowserRouter } from "react-router-dom";
 import './App.css';
+import axios from "axios"
 axios.defaults.baseURL= 'http://localhost:3001'
 function App() {
   return (

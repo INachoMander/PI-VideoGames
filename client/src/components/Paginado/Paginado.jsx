@@ -3,7 +3,7 @@ import s from "./Paginado.module.css"
 const Paginado =({juegosPorPag, allGames, paginado})=>{
     const pagNum = [];
 
-    for (let i = 1; i <= Math.ceil(allGames/juegosPorPag); i++) { // .celi(6.6)=7
+    for (let i = 1; i <= Math.ceil(allGames/juegosPorPag); i++) {
         pagNum.push(i)
     }
     return (

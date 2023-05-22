@@ -2,12 +2,8 @@ body {
   background-image: url('./Components/images/Guia-legal-de-los-videojuegos.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 code {

@@ -37,8 +37,6 @@ const getGames = async ()=>{
         rating: game.rating,
     }})
 
-
-    //console.log(gameApi)
     const allGames = juegos.concat(gameDB)
 
     if (allGames){

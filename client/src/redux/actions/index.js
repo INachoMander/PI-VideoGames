@@ -24,7 +24,7 @@ export const getAllvideogames = () =>{
             console.log(error);
         }
     }
-    }
+}
 
 export const getNames=(name)=>{
     return async (dispatch)=>{

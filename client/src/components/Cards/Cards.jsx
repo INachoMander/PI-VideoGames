@@ -17,7 +17,7 @@ const Cards = ({currentGames}) => {
    const errorCarga = <h4 className={s.errorCarga}>⚠No se econtró ningun juego</h4>
    if(carga){
       return(
-         <img className={s.carga}src="https://icon-library.com/images/loading-icon-animated-gif/loading-icon-animated-gif-7.jpg" alt="CARGANDO" />
+         <img className={s.carga}src="" alt="CARGANDO" />
       )
    }
 

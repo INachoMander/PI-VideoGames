@@ -20,7 +20,7 @@ function Detail() {
     console.log(details)
 
     if (carga) {
-        return "cargando paaa";
+        return "LOADING";
       }
 
     var regex = /(<([^>]+)>)/gi;

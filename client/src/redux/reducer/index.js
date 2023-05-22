@@ -17,7 +17,7 @@ const initialState = {
     genres: [],
     platforms: []
 }
-function rootReducer(state=initialState, action){
+function reducer(state=initialState, action){
         switch (action.type) {
             case GET_ALL_VIDEOGAMES:
                 return{
@@ -155,4 +155,4 @@ function rootReducer(state=initialState, action){
     }
 
 
-export default rootReducer;
+export default reducer;

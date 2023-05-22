@@ -23,7 +23,7 @@ const Navbar =({setCurrentPage}) =>{
     
   }
 
-   return(
+  return(
     
     <div className={styles.navbar}>  
       <form>
@@ -31,10 +31,10 @@ const Navbar =({setCurrentPage}) =>{
         onChange={(e)=>handleChange(e)} placeholder="Buscar por nombre"/>
         <button type="submit" className={styles.Button} onClick={(e)=>handleSubmit(e, setCurrentPage)}>Buscar</button>
       </form> <div> <br />
-      <span ><Link to={'/create'} className={styles.Button2}> Crear Juego !</Link></span></div>
+      <span ><Link to={'/create'} className={styles.Button2}> Crear Juego!</Link></span></div>
     </div>
     
-   )
+  )
 }
 
 export default Navbar;
