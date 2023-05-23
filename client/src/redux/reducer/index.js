@@ -8,7 +8,7 @@ import {
     FILTER_BY_SOURCE,
     FILTER_BY_GENRES,
     GET_PLATFORMS
-} from '../actions/index'
+} from '../actions/actions-types'
 
 const initialState = {
     allVideogames: [],

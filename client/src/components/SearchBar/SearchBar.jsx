@@ -15,17 +15,16 @@ export default function SearchBar() {
   }
 
   return (
-    <div className={styles.searchBarContainer}>
+    <div>
       <input
         type="search"
         placeholder="Buscar.."
         value={name}
         onChange={handleInputChange}
-        className={styles.searchInput}
       />
 
       <Link to="/name">
-        <button onClick={handleSubmit} className={styles.searchButton}>
+        <button onClick={handleSubmit}>
           Buscar
         </button>
       </Link>
