@@ -5,16 +5,16 @@
     grid-gap: 20px;
 }
 .carga{
-   
-    height: 80vw;
-    width: 80vw;
+   color: rgb(0, 255, 34);
+   font-size: 50px;
+   margin-top: 70px;
 }
 .errorCarga{
     display: flexbox;
     margin: auto;
     margin-left: 90%;
     margin-top: 5vw;
-    padding: 10px 10px;
+    padding: 30px 30px;
     border: 2px solid rgb(255, 80, 80);
     background-color: rgb(255, 0, 0);
     border-radius: 20px;
