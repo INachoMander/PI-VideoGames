@@ -1,0 +1,12 @@
+// export const GET_VIDEO_GAMES = "GET_VIDEO_GAMES";
+// export const GET_GENRES = "GET_GENRES";
+// export const RESET_SELECT = "RESET_SELECT";
+// export const SEARCH_BAR = "SEARCH_BAR";
+// export const GET_ID = "GET_ID";
+// export const BACK_HOME = "BACK_HOME";
+// export const FILTER_ORIGIN = "FILTER_ORIGIN";
+// export const FILTER_GENRES = "FILTER_GENRES";
+// export const ORDER_NAME = "ORDER_NAME";
+// export const ORDER_RATING = "ORDER_RATING";
+// export const CREATE_VIDEO_GAME = "CREATE_VIDEO_GAME"
+// export const DELETE_GAME ="DELETE_GAME"// 

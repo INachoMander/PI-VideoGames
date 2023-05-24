@@ -1,42 +1,40 @@
-import s from "./Cards.module.css"
-import Card from "../Card/Card"
-import { useDispatch } from "react-redux"
-import React from "react";
-import { useState } from "react";
-import { getAllvideogames } from "../../redux/actions";
+// import { useState, useEffect } from "react";
+// import {useDispatch, useSelector} from "react-redux"
 
-const Cards = ({currentGames}) => {
-   const dispatch = useDispatch()
-   const [carga, setCarga] = useState(true);
+// export default function Cards (){
 
-   React.useEffect(() => {
-       dispatch(getAllvideogames()).then(() => setCarga(false)) //me traigo la action creators q me trae todos mis videojuegos de la API
-   }, [dispatch])
+//     const dispatch = useDispatch;
+//     const allVideoGames = useSelector ((state) => state.videoGames) //se usa para traer la propiedad videoGames del estado inicial
 
-   //const allVideogames = useSelector(state => state.allVideogames) //me traigo del reducer el estado en donde guarde todos mis videojuegos
-   const errorCarga = <h4 className={s.errorCarga}>⚠ No se encontró ningun juego!</h4>
-   if(carga){
-      return(
-         /*<img className={s.carga}src="" alt="CARGANDO" />*/
-         <p className={s.carga}>CARGANDO...</p>
-      )
-   }
+//     useEffect(()=>{
+//         dispatch(getAllGames());
+//     }, [])
+// }
 
-   return (
-       <div className={s.containerCard}>
-           {currentGames.length > 0 ?
-           currentGames?.map(v => {
-               return (<Card
-                   key={v.id}
-                   id={v.id}
-                   image={v.image ? v.image : "IMAGEN AQUI"}
-                   name={v.name}
-                   genres={v.genres?.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}
-                   rating={v.rating}
-                   />)}) : errorCarga}
+import style from "./Cards.module.css";
+import { Link } from "react-router-dom";
+import Card from "../Card/Card";
 
-       </div>
-   )
-}
+const Cards = ({ games }) => {
+  return (
+    <div className={style.container}>
+      
 
+{games.map(({id, background_image, name, genres,rating }) => {
+  return (
+    <Card
+    background_image={background_image}
+    name={name}
+    genres={genres}
+    id = {id}
+    rating = {rating}
+    ></Card>
+    );
+  })}
+      
+      
+      
+    </div>
+  );
+};
 export default Cards;

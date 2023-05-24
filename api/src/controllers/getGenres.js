@@ -1,35 +1,29 @@
-const axios = require ('axios')
-const { Genres } = require('../db')
-const { API_KEY } = process.env
-require('dotenv').config();
 
-const getGenres = async () => {
+require('dotenv').config();
+const { Genres } = require("../db");
+const axios = require("axios");
+const { API_KEY } = process.env;
+
+const getGenders = async (req, res) => {
   try {
-    const dbGenres = await Genres.findAll()
-  
-    if (!dbGenres.length) {
-      let genres
-      const response = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
-      if (!response.data.results) throw Error('ERROR EN PEDIDO DE LA API')
-      genres = response.data.results.map(genre => {
-        return {
-          id: genre.id,
-          name: genre.name
-        }
-      })
-      await Genres.bulkCreate(genres)
-      return genres
-    }
-  
-    return dbGenres.map(genre => {
-      return {
-        id: genre.id,
-        name: genre.name
-      }
-    })
+    const URL_BASE = `https://api.rawg.io/api/genres?key=${API_KEY}`;
+
+    const getGendersApi = await axios.get(URL_BASE);
+
+    const genres = getGendersApi.data.results.map((g) => g.name);
+      
+    genres.forEach((element) => {
+    
+      Genres.findOrCreate({ where: { name: element} });
+    });
+
+    const allGenres = await Genres.findAll();
+    res.status(200).json(allGenres);
+    
   } catch (error) {
-    throw Error(error.message)
+    res.status(404).send("error");
   }
-}
-  
-module.exports = {getGenres}
+};
+
+module.exports = getGenders;
+

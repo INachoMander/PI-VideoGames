@@ -1,0 +1,36 @@
+.paginado{
+    margin: 30px;
+}
+
+.paginado > .buttonPaginado{
+    margin: 1px;
+    color: rgba(255, 255, 255, 0.62);
+  background-color:#1d2b3a ;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+
+.unButton{
+    margin: 1px;
+    color: rgba(255, 255, 255, 0.551);
+  background-color:#06376c ;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+
+
+}
+
+.carga{
+  color: rgb(0, 255, 34);
+  font-size: 50px;
+  margin-top: 70px;
+}
+
+.mensaje{
+  color: white;
+}
+    
+  

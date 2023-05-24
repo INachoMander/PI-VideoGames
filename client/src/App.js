@@ -1,21 +1,20 @@
-import LandingPage from "./Components/landingPage/landing"
-import Home from "./Components/homePage/home"
-import Detail from "./Components/Detail/Detail"
-import Create from "./Components/Create/Create"
-import GamesNames from "./Components/GamesNames/GamesNames"
+import "./App.css";
 import { Route, BrowserRouter } from "react-router-dom";
-import './App.css';
-import axios from "axios"
-axios.defaults.baseURL= 'http://localhost:3001'
+import Landing from "./views/Landing/Landing";
+import Home from "./views/Home/Home"
+import About from "./views/About/About";
+import Create from "./views/Create/Create";
+import Detail from "./views/Detail/Detail";
+
 function App() {
-  return (
+  return (  
     <div className="App">
       <BrowserRouter>
-        <Route exact path="/" render={()=> <LandingPage />} />
+        <Route exact path="/" render={()=> <Landing />} />
+        <Route exact path="/about" render={()=> <About/>}/>
         <Route exact path="/home" render={()=> <Home/>}/>
-        <Route exact path="/detail/:id" render={()=> <Detail/>}/>
         <Route exact path="/create" render={()=> <Create/>}/>
-        <Route path="/name " element={<GamesNames/>}/>
+        <Route exact path="/detail/:detailId" render={()=> <Detail/>}/>
       </BrowserRouter>
     </div>
   );

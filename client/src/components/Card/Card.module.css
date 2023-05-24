@@ -1,31 +1,105 @@
-*{
-    margin: 0;
-}
-.card{
+.box{
+    position: relative;
+    width: auto;
+    height: 100px;
     display: flex;
-    flex-direction: column;
-    transform:  translateZ(0);
+    justify-content: center;
+    align-items: center;
+
+}
+.box > .name {
+    color: #fff;
+    font-size: 2.3em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 10px #01843a,
+                0 0 20px #01843a,
+                0 0 40px #01843a,
+                0 0 80px #01843a,
+                0 0 120px #01843a;
+}
+
+.card{
+    
+    /* display: flex; 
+     flex-direction: column;  */
+    /* background-color: rgba(56, 46, 245, 0.538);
+    
+    width: 250px;
+    height: 300px;
+      */
+    font-size: 10px;
+    cursor: pointer;
+    border: 1px solid grey;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
     transition: transform 0.25s ease-out;
-    margin: auto;
-    margin-top: 1vw;
-    width: 35vw;
-    height: auto;
-    padding-bottom: 5px;
-    background-color: rgba(80, 218, 87, 0.61);
-    background-origin: content-box;
+    color: white;
+    position: relative;
+    height: 300px;
     border-radius: 20px;
-    box-shadow: 0px 0px 30px 30px rgba(21, 231, 203, 0.39);
-    border: 5px solid rgb(59, 255, 140);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    overflow: hidden;
+
+   
+}
+
+.poster{
+    position: relative;
+    overflow: hidden;
+}
+
+.poster::before{
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #334d49b2 50%, transparent);
+    transition: 0.5s;
+    z-index: 1;
+}
+
+
+
+
+.imagen{
+    width: 100%;
+    height: 300px;
+    transition: 0.5s;
+}
+
+.card:hover > .poster > .imagen{
+    transform: translateY(-30px);
+    filter: blur(5px)
+}
+
+
+
+.card:hover > .poster::before{
+    bottom: 0px;
 }
 
 .card:hover{
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
-.image{
-    margin: auto;
-    height: 20vw;
-    width: 30vw;
-    border: 1px solid black;
-    border-radius: 15px;
+.card > .details{
+position: absolute;
+bottom:-100px;
+width: 100%;
+left: -10px;
+padding: 20px;
+z-index: 2;
+transition: 0.5s;
+
+}
+
+.card:hover > .details{
+    bottom: 0px;
+}
+
+.link{
+    text-decoration: none;
 }

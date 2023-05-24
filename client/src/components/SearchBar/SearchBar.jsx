@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { searchBar } from '../../redux/actions/index';
-import style from '../SearchBar/SearchBar.module.css';
+import style from "./SearchBar.module.css";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { searchBar } from "../../redux/actions";
+
 
 const SearchBar = () => {
   const [name, setName] = useState("");
@@ -14,7 +15,7 @@ const SearchBar = () => {
 
   const dispatchName = (e) => {
     e.preventDefault();
-    dispatch(searchBar(name))
+dispatch(searchBar(name))
   
   };
 
