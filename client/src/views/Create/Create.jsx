@@ -98,8 +98,8 @@ const Create = () => {
         platforms: [],
         genre: [],
       });
-dispatch(getAllGames());
-alert(postGame.data.message)
+      dispatch(getAllGames());
+      alert(postGame.data.message)
       // if(videogames.find((f)=> valor.name === f.name)){
       //   alert ("VIDEOGAME ALREADY EXISTS")
       // }else {
