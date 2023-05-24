@@ -4,10 +4,12 @@ import {
     GET_VIDEOGAME,
     GET_BY_GENRES,
     CREATE_VIDEOGAME,
+    SEARCH_BAR,
     ORDER_BY,
     FILTER_BY_SOURCE,
     FILTER_BY_GENRES,
-    GET_PLATFORMS
+    GET_PLATFORMS,
+    DELETE_STATES
 } from '../actions/actions-types'
 
 const initialState = {
@@ -15,7 +17,8 @@ const initialState = {
     videogames: [],
     videogame: [],
     genres: [],
-    platforms: []
+    platforms: [],
+    details: {}
 }
 function reducer(state=initialState, action){
         switch (action.type) {
@@ -41,16 +44,22 @@ function reducer(state=initialState, action){
                 } 
                 
             
-                case GET_BY_GENRES:
-                    return{
-                        ...state,
-                        genres: action.payload,
-                    }
+            case GET_BY_GENRES:
+                return{
+                    ...state,
+                    genres: action.payload,
+                }
                 
             case CREATE_VIDEOGAME:
-                    return{
-                        ...state
-                    }
+                return{
+                    ...state
+                }
+
+            case SEARCH_BAR:
+                return {
+                    ...state,
+                    videoGames: action.payload
+                }
                     
 
             case ORDER_BY:
@@ -120,7 +129,7 @@ function reducer(state=initialState, action){
                 }
              
 
-                case FILTER_BY_SOURCE:
+            case FILTER_BY_SOURCE:
                 let getV= state.videogames;
                 let filtrados = [];
 
@@ -141,7 +150,7 @@ function reducer(state=initialState, action){
                 }
              
             
-             case GET_PLATFORMS:
+            case GET_PLATFORMS:
                 return{
                     ...state,
                     platforms: action.payload
@@ -150,6 +159,15 @@ function reducer(state=initialState, action){
                 return{
                     ...state,
                 }
+
+            case DELETE_STATES:
+                return {
+                    videogames: [],
+                    getAllVideoGames: [],
+                    genres: [],
+                    details: {},
+                };
+            
                 
         }
     }

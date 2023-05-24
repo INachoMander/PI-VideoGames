@@ -2,6 +2,7 @@ import LandingPage from "./Components/landingPage/landing"
 import Home from "./Components/homePage/home"
 import Detail from "./Components/Detail/Detail"
 import Create from "./Components/Create/Create"
+import GamesNames from "./Components/GamesNames/GamesNames"
 import { Route, BrowserRouter } from "react-router-dom";
 import './App.css';
 import axios from "axios"
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/home" render={()=> <Home/>}/>
         <Route exact path="/detail/:id" render={()=> <Detail/>}/>
         <Route exact path="/create" render={()=> <Create/>}/>
+        <Route path="/name " element={<GamesNames/>}/>
       </BrowserRouter>
     </div>
   );

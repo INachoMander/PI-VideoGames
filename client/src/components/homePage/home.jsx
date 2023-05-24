@@ -1,10 +1,11 @@
-import Navbar from "../Navbar/Navbar";
+// import Navbar from "../Navbar/Navbar";
 import Cards from "../Cards/Cards";
 import Filtros from "../Filtros/Filtros"
 import Paginado from "../Paginado/Paginado"
 import {useDispatch, useSelector} from "react-redux"
-import {filterByGenres, filterBySource, orderBy, getAllvideogames } from "../../redux/actions/index"
+import {filterByGenres, filterBySource, orderBy, getAllvideogames, getNames } from "../../redux/actions/index"
 import React, { useState } from "react";
+import SearchBar from "../SearchBar/SearchBar";
 
 const HomePage =() =>{
    const dispatch = useDispatch();
@@ -24,39 +25,47 @@ const HomePage =() =>{
       window.scrollTo(0, 0);
    }, [currentPage])
 
-   function handleSort(e){
-      e.preventDefault()
-      if(e.target.value===""){
+   function handleSort(event){
+      event.preventDefault()
+      if(event.target.value===""){
          dispatch(getAllvideogames())
       }else {
-         dispatch(orderBy(e.target.value))
+         dispatch(orderBy(event.target.value))
          setCurrentPage(1)
       }
    }
 
-   function handleFilter(e){
-      e.preventDefault()
-      if(e.target.value===""){
+   function handleFilter(event){
+      event.preventDefault()
+      if(event.target.value===""){
          dispatch(getAllvideogames())
       }else {
-         dispatch(filterByGenres(e.target.value))
+         dispatch(filterByGenres(event.target.value))
          setCurrentPage(1)
    }
 }
 
-   function handleSource(e){
-      e.preventDefault()
-      if(e.target.value===""){
+   function handleSource(event){
+      event.preventDefault()
+      if(event.target.value===""){
          dispatch(getAllvideogames())
       }else{
-         dispatch(filterBySource(e.target.value))
+         dispatch(filterBySource(event.target.value))
          setCurrentPage(1)
       }
    }
 
+   const handleSearch = (search) => {
+      // resetPagination();
+      dispatch(getNames(search))
+   }
+
    return( 
    <div>
-      <Navbar></Navbar>
+      {/*<Navbar>
+         <SearchBar onSearch={handleSearch}/>
+      </Navbar>*/}
+      <SearchBar/>
       <Paginado juegosPorPag={juegosPorPag} allGames={allGames.length} paginado={paginado}></Paginado>
       <Filtros handleSort={handleSort} handleFilter={handleFilter} handleSource={handleSource}></Filtros>
       <Cards currentGames={currentGames}></Cards>

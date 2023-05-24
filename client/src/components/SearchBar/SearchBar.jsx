@@ -1,33 +1,37 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getNames } from '../../redux/actions/index';
-import { Link } from 'react-router-dom';
+import { searchBar } from '../../redux/actions/index';
+import style from '../SearchBar/SearchBar.module.css';
 
-export default function SearchBar() {
+const SearchBar = () => {
+  const [name, setName] = useState("");
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
 
-  function handleInputChange(event) {
-    setName(event.target.value);
-  }
-  function handleSubmit() {
-    dispatch(getNames(name));
-  }
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setName(event.target.value)
+  };
+
+  const dispatchName = (e) => {
+    e.preventDefault();
+    dispatch(searchBar(name))
+  
+  };
 
   return (
-    <div>
-      <input
-        type="search"
-        placeholder="Buscar.."
-        value={name}
-        onChange={handleInputChange}
-      />
-
-      <Link to="/name">
-        <button onClick={handleSubmit}>
-          Buscar
-        </button>
-      </Link>
+    <div className={style.container}>
+      <form>
+        <input
+          type="text"
+          placeholder="NAME VIDEOGAME"
+          onChange={handleSearch}
+          value={name}
+          className={style.input}
+        />
+        <button className={style.button} onClick={(e) => dispatchName(e)}>SEARCH</button>
+      </form>
     </div>
   );
-}
+};
+
+export default SearchBar;

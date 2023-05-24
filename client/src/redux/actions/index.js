@@ -1,4 +1,4 @@
-import { GET_ALL_VIDEOGAMES, GET_NAMES, GET_VIDEOGAME, GET_BY_GENRES, CREATE_VIDEOGAME, ORDER_BY, ORDER_BY_RATING, FILTER_BY_SOURCE, FILTER_BY_GENRES, GET_PLATFORMS } from '../actions/actions-types';
+import { GET_ALL_VIDEOGAMES, GET_NAMES, GET_VIDEOGAME, GET_BY_GENRES, CREATE_VIDEOGAME, SEARCH_BAR , ORDER_BY, ORDER_BY_RATING, FILTER_BY_SOURCE, FILTER_BY_GENRES, GET_PLATFORMS, DELETE_STATES } from '../actions/actions-types';
 import axios from "axios";
 
 export const getAllvideogames = () =>{
@@ -72,6 +72,16 @@ export const createVideogame = (videogame)=>{
     }
 }
 
+export const searchBar = (name) => {
+    return async function (dispatch) {
+      const game = await axios.get(
+        `http://localhost:3001/videogames?name=${name}`
+      );
+     
+      dispatch({ type: SEARCH_BAR, payload: game.data });
+    };
+};
+
 export const orderBy = (payload) =>{
     return {
         type: ORDER_BY,
@@ -114,4 +124,12 @@ export const getPlatforms =()=>{
     } catch (error) {
         console.log(error);
     }}
+}
+
+export const deleteStates = () => {
+    return async function (dispatch) {
+        return dispatch ({
+            type: DELETE_STATES
+        })
+    }
 }
