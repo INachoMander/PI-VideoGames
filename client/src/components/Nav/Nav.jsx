@@ -39,7 +39,7 @@ const Nav = () => {
     <nav className={style.nav}>
       <div>
         <Link to="/create">
-          <button className={style.buttonLink}>CREATED VIDEOGAMES</button>
+          <button className={style.buttonLink}>CREATE CARD OF VIDEOGAMES</button>
         </Link>
         <Link to="/about">
           <button className={style.buttonLink}>ABOUT</button>

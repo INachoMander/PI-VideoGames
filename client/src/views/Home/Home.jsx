@@ -28,11 +28,6 @@ const Home = () => {
     dispatch(getAllGames()).then((res)=>setLoading(false));
   }, [dispatch]);
 
- 
-
-
- 
-
   const next = () => {
     if (indexOfLastGames > games.length) return;
     setCurrentPage(currentPage + 1);
@@ -45,7 +40,6 @@ const Home = () => {
   return (
     <div>
       <Nav ></Nav>
-      
       
       {loading? (
         <div>

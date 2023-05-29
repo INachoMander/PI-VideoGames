@@ -36,7 +36,7 @@ const postGames = async (req, res) => {
       if(created){
         res.status(200).json({message:"VIDEOGAME CREATED SUCCESSFULLY"})
       }else if(!created){ 
-        res.status(200).json({message:"VIDEOGAME ALREADY EXISTS"})
+        res.status(400).json({message:"VIDEOGAME ALREADY EXISTS"})
       }
 
       // res.status(200).json(newGame)

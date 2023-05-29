@@ -13,9 +13,6 @@ const Create = () => {
     dispatch(getGenres());
   }, [dispatch]);
 
-
-
-
   let platforms = [
     "PC",
     "PlayStation",
@@ -86,10 +83,10 @@ const Create = () => {
       setValidador("One or more genres required");
     } else {
       
-      const postGame = await axios.post("http://localhost:3001/videogames", valor)
-      
-      setValidador("");
-      setvalor({
+      try {
+        const postGame = await axios.post("http://localhost:3001/videogames", valor)
+        setValidador("");
+        setvalor({
         name: "",
         description: "",
         released: "",
@@ -98,19 +95,12 @@ const Create = () => {
         platforms: [],
         genre: [],
       });
-      dispatch(getAllGames());
-      alert(postGame.data.message)
-      // if(videogames.find((f)=> valor.name === f.name)){
-      //   alert ("VIDEOGAME ALREADY EXISTS")
-      // }else {
-        
-      //   dispatch(createVideoGame(valor));
-      // alert("VIDEOGAME CREATED SUCCESSFULLY");
-      // dispatch(getAllGames());
-
-      
-      //}
-      
+        dispatch(getAllGames());
+        alert(postGame.data.message)
+      } catch (error) {
+        console.log(error);
+        alert()
+      }
     }
   };
 
@@ -160,6 +150,8 @@ const Create = () => {
     }
     setValueSelect("0");
   };
+
+
 
   //HANDLES
 

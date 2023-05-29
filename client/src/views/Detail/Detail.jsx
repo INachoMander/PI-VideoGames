@@ -16,18 +16,12 @@ const Detail = () => {
     
   }, [dispatch, detailId]);
 
-  
-
   const handleDelete = () => {
     dispatch(removeGame(detailId))
     dispatch(getAllGames())
   }
 
-  
-
   return (
-      
-      
     <div className={style.padre}>
       
       <div className={style.card}>
